@@ -1,13 +1,12 @@
 SYSTEM_CONFIG = {
     #set track number
     'track_count': 1,
-    
     #compute node and library
     'nodes':{
         'compute_node': {
             'name': 'ComputeNode',
             'docking_stations': 2,  #docking station number
-            'processing_time': 10,  #SSD processing time (in seconds)
+            'processing_time': 50,  #SSD processing time (in seconds)
         },
         'library': {
             'name': 'Library',
@@ -17,10 +16,10 @@ SYSTEM_CONFIG = {
     },
     'cart_config': {
         'count': 2,
-        'max_speed': 2.0,  #meter/second
-        'acceleration': 0.5,  #meter/second squared
-        'deceleration': 0.5,  #meter/second squared
-        'docking_time': 5,  #docking time (in seconds)
+        'max_speed': 200,  #meter/second
+        'acceleration': 1000,  #meter/second squared
+        'deceleration': 1000,  #meter/second squared
+        'docking_time': 10,  #docking time (in seconds)
     },
     'dataset_config': {
         'ssd_count': 30,
@@ -28,7 +27,7 @@ SYSTEM_CONFIG = {
     },
     #distance between nodes (in meters)
     'distances': {
-        ('ComputeNode', 'Library'): 10,
-        ('Library', 'ComputeNode'): 10,
+        ('ComputeNode', 'Library'): 500,
+        ('Library', 'ComputeNode'): 500,
     }
 } 
