@@ -1,4 +1,6 @@
 import math
+import random
+
 class Cart:
     def __init__(self, env, name, config):
         self.env = env
@@ -7,14 +9,32 @@ class Cart:
         self.acceleration = config['acceleration']
         self.deceleration = config['deceleration']
         self.docking_time = config['docking_time']
+        self.mass = config['mass']
+        self.ssd_capacity = config['ssd_capacity']
+        self.ssd_count = config['ssd_count']
+        self.total_capacity = config['total_capacity']
+        self.available_ssds = set()  
         self.current_ssd = None
         self.current_node = None
         self.stats = {
             'time_blocked': 0,
             'launches': 0,
             'total_time': 0,
-            'distance_traveled': 0
+            'distance_traveled': 0,
+            'conflicts': 0
         }
+
+    def assign_ssds(self, ssd_numbers):
+        self.available_ssds = set(ssd_numbers)
+
+    def has_ssd(self, ssd_number):
+        return ssd_number in self.available_ssds
+
+    def get_ssd_location(self, ssd_number):
+        if ssd_number in self.available_ssds:
+            return self.current_node
+        return None
+
     def calculate_travel_time(self, distance):
         #consider the travel time with acceleration and deceleration
         accel_time = self.max_speed / self.acceleration   #v_t = V_0(0) + a * t
@@ -53,7 +73,3 @@ class Cart:
             const_speed_distance = distance - accel_distance - decel_distance
             const_speed_time = const_speed_distance / self.max_speed
             return accel_time + const_speed_time + decel_time
-    '''
-    def calculate_energy(self, distance, time):
-        TODO: figure out the energy calculation formula
-    '''

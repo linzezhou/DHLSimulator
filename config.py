@@ -3,31 +3,57 @@ SYSTEM_CONFIG = {
     'track_count': 1,
     #compute node and library
     'nodes':{
-        'compute_node': {
-            'name': 'ComputeNode',
-            'docking_stations': 2,  #docking station number
-            'processing_time': 50,  #SSD processing time (in seconds)
-        },
         'library': {
             'name': 'Library',
-            'docking_stations': 2,
-            'processing_time': 0,  #library doesn't need processing time
+            'docking_stations': 1, 
+            'position': (0, 0)  #center
+        },
+        'compute_node_1': {
+            'name': 'ComputeNode1',
+            'docking_stations': 1,
+            'position': (1000, 0)
+        },
+        'compute_node_2': {
+            'name': 'ComputeNode2',
+            'docking_stations': 1,
+            'position': (0, 1000)
+        },
+        'compute_node_3': {
+            'name': 'ComputeNode3',
+            'docking_stations': 1,
+            'position': (-1000, 0)
+        },
+        'compute_node_4': {
+            'name': 'ComputeNode4',
+            'docking_stations': 1,
+            'position': (0, -1000)
         }
     },
     'cart_config': {
-        'count': 2,
-        'max_speed': 200,  #meter/second
-        'acceleration': 1000,  #meter/second squared
-        'deceleration': 1000,  #meter/second squared
-        'docking_time': 10,  #docking time (in seconds)
+        'count': 3, 
+        'max_speed': 300,
+        'acceleration': 1000,
+        'deceleration': 1000,
+        'docking_time': 3,
+        'mass': 0.524,
+        'ssd_capacity': 8 * 1024,  
+        'ssd_count': 64,  
+        'total_capacity': 8 * 1024 * 64  
     },
     'dataset_config': {
+        'total_data_size': 29 * 1024 * 1024, 
         'ssd_count': 30,
-        'ssd_size': 100,  #assume GB for now
+        'ssd_size': 8 * 1024, 
     },
-    #distance between nodes (in meters)
+    #distance between nodes in meters
     'distances': {
-        ('ComputeNode', 'Library'): 500,
-        ('Library', 'ComputeNode'): 500,
+        ('Library', 'ComputeNode1'): 1000,
+        ('Library', 'ComputeNode2'): 1000,
+        ('Library', 'ComputeNode3'): 1000,
+        ('Library', 'ComputeNode4'): 1000,
+        ('ComputeNode1', 'Library'): 1000,
+        ('ComputeNode2', 'Library'): 1000,
+        ('ComputeNode3', 'Library'): 1000,
+        ('ComputeNode4', 'Library'): 1000,
     }
 } 
