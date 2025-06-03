@@ -3,36 +3,38 @@ from config import SYSTEM_CONFIG
 from DHLpackage import Simulator
 
 def main():
-    commands = [
-        {
-            'task_id': 'task1',
-            'start_time': 0,
-            'node_name': 'ComputeNode1',
-            'ssd_number': 3,
-            'duration': 1350
-        },
-        {
-            'task_id': 'task2',
-            'start_time': 100,
-            'node_name': 'ComputeNode2',
-            'ssd_number': 25,
-            'duration': 1350
-        },
-        {
-            'task_id': 'task3',
-            'start_time': 200,
-            'node_name': 'ComputeNode3',
-            'ssd_number': 3,
-            'duration': 1350
-        },
-        {
-            'task_id': 'task4',
-            'start_time': 300,
-            'node_name': 'ComputeNode4',
-            'ssd_number': 15,
-            'duration': 1350
-        }
-    ]
+    #adjustable commands according to the needs of the simulation
+
+    # commands = [
+    #     {
+    #         'task_id': 'task1',
+    #         'start_time': 0,
+    #         'node_name': 'ComputeNode1',
+    #         'ssd_number': 3,
+    #         'duration': 1350
+    #     },
+    #     {
+    #         'task_id': 'task2',
+    #         'start_time': 100,
+    #         'node_name': 'ComputeNode2',
+    #         'ssd_number': 25,
+    #         'duration': 1350
+    #     },
+    #     {
+    #         'task_id': 'task3',
+    #         'start_time': 200,
+    #         'node_name': 'ComputeNode3',
+    #         'ssd_number': 3,
+    #         'duration': 1350
+    #     },
+    #     {
+    #         'task_id': 'task4',
+    #         'start_time': 300,
+    #         'node_name': 'ComputeNode4',
+    #         'ssd_number': 15,
+    #         'duration': 1350
+    #     }
+    # ]
 
     simulator = Simulator(SYSTEM_CONFIG)
     results = simulator.run_simulation(commands)
